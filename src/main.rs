@@ -18,6 +18,6 @@ fn main() {
 
     let finnhub_client = client::get_finhub_client();
     let symbol_price = finnhub_client.get_symbol_price(args.symbol).unwrap();
-    say(Options { text: format!("${}", symbol_price.c) , ..Options::default()});
-    println!("{} high: ${} low: ${}", NaiveDateTime::from_timestamp(symbol_price.t, 0), symbol_price.h, symbol_price.l)
+    say(Options { text: format!("${:.2}", symbol_price.c) , ..Options::default()});
+    println!("{} high: ${:.2} low: ${:.2}", NaiveDateTime::from_timestamp(symbol_price.t, 0), symbol_price.h, symbol_price.l)
 }
